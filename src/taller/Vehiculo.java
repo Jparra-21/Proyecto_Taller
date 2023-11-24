@@ -80,27 +80,4 @@ public class Vehiculo {
         this.rut_cliente = rut_cliente;
     }
     
-<<<<<<< HEAD
-=======
-    public void ingresoVehiculo (Vehiculo vehiculo) throws ParseException{
-        Scanner teclado=new Scanner(System.in);        
-        System.out.print("Ingrese patente del vehiculo : ");
-        String patente=teclado.nextLine();
-        System.out.print("Ingrese fecha de fabricacion del vehiculo : ");
-        //String agno_fab=teclado.nextLine();
-        //System.out.print("Ingrese color del vehiculo : ");
-        String color=teclado.nextLine();
-        System.out.print("Ingrese marca del vehiculo : ");
-        String marca=teclado.nextLine();
-        System.out.print("Ingrese modelo del vehiculo : ");
-        String modelo=teclado.nextLine();
-        System.out.print("Ingrese RUT del dueño del vehiculo : ");
-        
-        this.setPatente(patente);
-        //this.setAgno_fab(agno_fab);
-        this.setColor(color); 
-        this.setMarca(marca); 
-        this.setModelo(modelo);
-    }
->>>>>>> origin/master
 }
