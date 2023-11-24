@@ -10,9 +10,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Year;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import taller.Cliente;
@@ -31,7 +31,7 @@ public class CrudeVehiculo {
         try {
             stmt = conn.prepareStatement(query);
             stmt.setString(1,vic.getPatente());
-            stmt.setDate(2, java.sql.Date.valueOf(new SimpleDateFormat("yyyy").format(vic.getAgno_fab())));
+            stmt.setDate(2,java.sql.Date.valueOf(vic.getAgno_fab()));
             stmt.setString(3,vic.getColor());
             stmt.setString(4, vic.getMarca());
             stmt.setString(5, vic.getModelo());
@@ -58,7 +58,7 @@ public class CrudeVehiculo {
                 rs = stmt.executeQuery("SELECT * from vehiculo where patente ="+args);
                  while (rs.next()) {
                  vic.setPatente(rs.getString("patente"));
-                 vic.setAgno_fab(rs.getDate("agno_fab"));
+                 vic.setAgno_fab(rs.getString("agno_fab"));
                  vic.setColor(rs.getString("color"));
                  vic.setMarca(rs.getString("marca"));
                  vic.setModelo(rs.getString("modelo"));

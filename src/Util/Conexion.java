@@ -7,8 +7,6 @@ package Util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +23,7 @@ public class Conexion {
         conexion = DriverManager.getConnection(url, username, password);
         System.out.println("Conexion Exitosa");
     
-    } catch (Exception ex) {
+    } catch (SQLException ex) {
         System.out.println(ex.getMessage());
     }   
         return conexion;

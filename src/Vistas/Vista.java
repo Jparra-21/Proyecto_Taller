@@ -384,13 +384,14 @@ public class Vista extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(listaClientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoVehiculo)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(listaVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnModificarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(listaClientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(infoVehiculo)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -568,7 +569,7 @@ public class Vista extends javax.swing.JFrame {
     private void btnIngresoVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoVehiculoActionPerformed
         // TODO add your handling code here:
         String patente=txtPatente.getText();
-        String fecha=txtAgnoFab.getText();
+        String agno_fab=txtAgnoFab.getText();
         String color=txtColor.getText();
         String marca=txtMarca.getText();
         String modelo=txtModelo.getText();
@@ -576,13 +577,6 @@ public class Vista extends javax.swing.JFrame {
         CrudeCliente crudCli=new CrudeCliente();
         Cliente cli = new Cliente();
         cli = crudCli.Buscar(rut_cliente);
-        Date agno_fab =null;
-        SimpleDateFormat formato=new SimpleDateFormat("yyyy");
-        try {
-            agno_fab=formato.parse(fecha);
-        } catch (ParseException ex) {
-            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
-        }
         Vehiculo vic=new Vehiculo(patente,agno_fab,color,marca,modelo,cli);   
         CrudeVehiculo crudVic=new CrudeVehiculo();
         try {

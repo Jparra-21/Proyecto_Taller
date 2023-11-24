@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Vehiculo {
     private String patente;
-    private Date agno_fab;
+    private String agno_fab;
     private String color;
     private String marca;
     private String modelo;
@@ -23,7 +23,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String patente, Date agno_fab, String color, String marca, String modelo, Cliente rut_cliente) {
+    public Vehiculo(String patente, String agno_fab, String color, String marca, String modelo, Cliente rut_cliente) {
         this.patente = patente;
         this.agno_fab = agno_fab;
         this.color = color;
@@ -40,11 +40,11 @@ public class Vehiculo {
         this.patente = patente;
     }
 
-    public Date getAgno_fab() {
+    public String getAgno_fab() {
         return agno_fab;
     }
 
-    public void setAgno_fab(Date agno_fab) {
+    public void setAgno_fab(String agno_fab) {
         this.agno_fab = agno_fab;
     }
 
