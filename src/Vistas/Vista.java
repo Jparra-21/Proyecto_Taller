@@ -3,8 +3,6 @@ package Vistas;
 import Controlador.CrudeCliente;
 import Controlador.CrudeVehiculo;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -174,27 +172,27 @@ public class Vista extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtApe2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
+                                .addComponent(txtApe2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtApe1, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtRut, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addComponent(txtRut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3)
                             .addComponent(infoCliente)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(143, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnModificarClienteSQL, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnIngresoCliente, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(18, 18, 18)))
+                            .addComponent(btnIngresoCliente, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -203,7 +201,7 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(btnModificarCliente)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminarCliente)))
-                .addGap(295, 295, 295))
+                .addGap(269, 269, 269))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,7 +238,7 @@ public class Vista extends javax.swing.JFrame {
                             .addComponent(btnIngresoCliente)
                             .addComponent(btnModificarClienteSQL)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(255, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cliente", jPanel3);
@@ -340,7 +338,7 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
-        btnModificarClienteSQL.setVisible(false);
+        btnModificarVehiculoSQL.setVisible(false);
         btnModificarVehiculoSQL.setText("Modificar Vehiculo");
         btnModificarVehiculoSQL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -353,32 +351,27 @@ public class Vista extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
-                        .addComponent(btnIngresoVehiculo))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnModificarVehiculoSQL)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtModelo)
-                                .addComponent(txtMarca)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtColor, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtAgnoFab, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtPatente, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtClienteVehiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
-                                    .addComponent(jLabel7)
-                                    .addComponent(infoVehiculo)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnModificarVehiculoSQL)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtModelo)
+                        .addComponent(txtMarca)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtColor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtAgnoFab, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtPatente, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtClienteVehiculo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+                            .addComponent(jLabel7)
+                            .addComponent(infoVehiculo)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)))
+                    .addComponent(btnIngresoVehiculo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(listaClientes1)
@@ -388,8 +381,8 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(btnModificarVehiculo)
                         .addGap(18, 18, 18)
                         .addComponent(btnEliminarVehiculo))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(250, 250, 250))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(200, 200, 200))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -430,11 +423,11 @@ public class Vista extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnModificarVehiculoSQL)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnIngresoVehiculo)
-                .addGap(42, 42, 42))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnModificarVehiculoSQL)
+                .addContainerGap(178, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Vehiculo", jPanel4);
@@ -490,6 +483,7 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresoClienteActionPerformed
+
         String rut=txtRut.getText();
         String dv= rut.substring(rut.length()-1);
         rut = rut.substring(0, rut.length()-1);
@@ -543,17 +537,17 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
         // TODO add your handling code here:
-        String modificarCliente = JOptionPane.showInputDialog(rootPane, "Ingrese el rut del usuario que desea modificar");
-        CrudeCliente crud=new CrudeCliente();
-        Cliente cli=new Cliente();
-        cli = crud.Buscar(modificarCliente);
-        txtRut.setText(cli.getRut()+"-"+cli.getDv());
-        txtNombre.setText(cli.getNombre());
-        txtApe1.setText(cli.getApe1());
-        txtApe2.setText(cli.getApe2());
-        infoCliente.setText("Modificar Cliente:"+modificarCliente);
-        txtRut.setEditable(false);
-        btnModificarClienteSQL.setVisible(true);
+            String modificarCliente = JOptionPane.showInputDialog(rootPane, "Ingrese el rut del usuario que desea modificar");
+            CrudeCliente crud=new CrudeCliente();
+            Cliente cli = crud.Buscar(modificarCliente);
+            txtRut.setText(cli.getRut()+"-"+cli.getDv());
+            txtNombre.setText(cli.getNombre());
+            txtApe1.setText(cli.getApe1());
+            txtApe2.setText(cli.getApe2());
+            infoCliente.setText("Modificar Cliente:"+modificarCliente);
+            txtRut.setEditable(false);
+            btnModificarClienteSQL.setVisible(true);
+            
     }//GEN-LAST:event_btnModificarClienteActionPerformed
 
     private void listaClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaClientesActionPerformed
@@ -638,6 +632,9 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnEliminarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVehiculoActionPerformed
         // TODO add your handling code here:
+        String eliminarVehiculo = JOptionPane.showInputDialog(rootPane, "Ingrese la patente del vehiculo que desea eliminar");
+        CrudeVehiculo crud=new CrudeVehiculo();
+        crud.Eliminar(eliminarVehiculo);
     }//GEN-LAST:event_btnEliminarVehiculoActionPerformed
 
     private void btnModificarVehiculoSQLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarVehiculoSQLActionPerformed

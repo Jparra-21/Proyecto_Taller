@@ -100,7 +100,7 @@ public class CrudeVehiculo {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        String query = "Delete from vheiculo where `patente`=?";
+        String query = "Delete from vehiculo where `patente`=?";
             try {
                 stmt = conn.prepareStatement(query);
                 stmt.setString(1, args);
@@ -129,7 +129,7 @@ public class CrudeVehiculo {
             while (rs.next()) { 
                 fila[0]=rs.getString(6);
                 fila[1]=rs.getString(1);
-                fila[2]=rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5);
+                fila[2]=rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(3)+" "+rs.getInt(2);
                 tabla.addRow(fila);
             }
             rs.close();

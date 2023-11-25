@@ -91,15 +91,15 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="24" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="txtApe2" alignment="0" pref="223" max="32767" attributes="0"/>
+                                          <Component id="txtApe2" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtApe1" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtNombre" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtRut" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtRut" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="infoCliente" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -107,17 +107,17 @@
                                       <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="33" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="143" max="32767" attributes="0"/>
+                                  <EmptySpace pref="137" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="btnModificarClienteSQL" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnIngresoCliente" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -128,7 +128,7 @@
                                   <Component id="btnEliminarCliente" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="295" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -173,7 +173,7 @@
                               </Group>
                               <Component id="jScrollPane1" min="-2" pref="341" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="255" max="32767" attributes="0"/>
+                          <EmptySpace pref="252" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -304,39 +304,31 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
-                                  <Component id="btnIngresoVehiculo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="btnModificarVehiculoSQL" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtModelo" max="32767" attributes="0"/>
-                                          <Component id="txtMarca" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="txtColor" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtAgnoFab" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtPatente" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtClienteVehiculo" alignment="0" pref="223" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="infoVehiculo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="btnModificarVehiculoSQL" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtModelo" max="32767" attributes="0"/>
+                                  <Component id="txtMarca" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtColor" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtAgnoFab" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtPatente" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtClienteVehiculo" alignment="0" pref="223" max="32767" attributes="0"/>
                                       </Group>
+                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="infoVehiculo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="btnIngresoVehiculo" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="9" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <Component id="listaClientes1" min="-2" max="-2" attributes="0"/>
@@ -347,9 +339,9 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="btnEliminarVehiculo" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane2" min="-2" pref="462" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="558" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -397,11 +389,11 @@
                               </Group>
                               <Component id="jScrollPane2" min="-2" pref="354" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnModificarVehiculoSQL" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="136" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnIngresoVehiculo" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnModificarVehiculoSQL" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="178" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -542,7 +534,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnModificarVehiculoSQLActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnModificarClienteSQL.setVisible(false);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="btnModificarVehiculoSQL.setVisible(false);"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
