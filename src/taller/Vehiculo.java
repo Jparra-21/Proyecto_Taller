@@ -4,17 +4,13 @@
  */
 package taller;
 
-import java.text.ParseException;
-import java.util.Date;
-import java.util.Scanner;
-
 /**
  *
  * @author Javier Ignacio Parraguirre Lizarraga 20/10/23
  */
 public class Vehiculo {
     private String patente;
-    private String agno_fab;
+    private int agno_fab;
     private String color;
     private String marca;
     private String modelo;
@@ -23,7 +19,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(String patente, String agno_fab, String color, String marca, String modelo, Cliente rut_cliente) {
+    public Vehiculo(String patente, int agno_fab, String color, String marca, String modelo, Cliente rut_cliente) {
         this.patente = patente;
         this.agno_fab = agno_fab;
         this.color = color;
@@ -40,11 +36,11 @@ public class Vehiculo {
         this.patente = patente;
     }
 
-    public String getAgno_fab() {
+    public int getAgno_fab() {
         return agno_fab;
     }
 
-    public void setAgno_fab(String agno_fab) {
+    public void setAgno_fab(int agno_fab) {
         this.agno_fab = agno_fab;
     }
 

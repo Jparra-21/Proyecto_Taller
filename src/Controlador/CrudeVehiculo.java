@@ -11,8 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Year;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import taller.Cliente;
@@ -31,13 +29,13 @@ public class CrudeVehiculo {
         try {
             stmt = conn.prepareStatement(query);
             stmt.setString(1,vic.getPatente());
-            stmt.setDate(2,java.sql.Date.valueOf(vic.getAgno_fab()));
+            stmt.setInt(2,vic.getAgno_fab());
             stmt.setString(3,vic.getColor());
             stmt.setString(4, vic.getMarca());
             stmt.setString(5, vic.getModelo());
-            stmt.setObject(6, vic.getRut_cliente());
-            stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "VehiculoIngresado Correctamente!!!");
+            stmt.setString(6, cli.getRut());
+            stmt.executeLargeUpdate();
+            JOptionPane.showMessageDialog(null, "Vehiculo Ingresado Correctamente!!!");
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -48,21 +46,24 @@ public class CrudeVehiculo {
     
      
     public Vehiculo Buscar(String args){
-        Statement stmt;
+        PreparedStatement stmt;
         ResultSet rs;
         Vehiculo vic = new Vehiculo();
         Conexion con= new Conexion();
+        CrudeCliente crudCli=new CrudeCliente();
         Connection conn=con.conectarBD("duocdb");
-            try {
-                stmt = conn.createStatement(); 
-                rs = stmt.executeQuery("SELECT * from vehiculo where patente ="+args);
-                 while (rs.next()) {
+        String query =("SELECT * from vehiculo where patente=?");    
+        try {
+                stmt = conn.prepareStatement(query);
+                stmt.setString(1,args);
+                rs = stmt.executeQuery();
+                while (rs.next()) {
                  vic.setPatente(rs.getString("patente"));
-                 vic.setAgno_fab(rs.getString("agno_fab"));
+                 vic.setAgno_fab(rs.getInt("agno_fab"));
                  vic.setColor(rs.getString("color"));
                  vic.setMarca(rs.getString("marca"));
                  vic.setModelo(rs.getString("modelo"));
-                 vic.setRut_cliente((Cliente) rs.getObject("rut_cliente"));
+                 vic.setRut_cliente(crudCli.Buscar(rs.getString("rut_cliente")));
                  }
                 rs.close();
                 stmt.close();
@@ -77,16 +78,15 @@ public class CrudeVehiculo {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        String query ="UPDATE vehiculo SET patente = ?, agno_fab = ?, color = ?, marca = ?, modelo = ?, rut_cliente = ? WHERE patente =?";
+        String query ="UPDATE vehiculo SET agno_fab = ?, color = ?, marca = ?, modelo = ?, rut_cliente = ? WHERE patente =?";
         try {
             stmt = conn.prepareStatement(query);
-            stmt.setString(1,vic.getPatente());
-            stmt.setDate(2, java.sql.Date.valueOf(new SimpleDateFormat("yyyy").format(vic.getAgno_fab())));
-            stmt.setString(3,vic.getColor());
-            stmt.setString(4, vic.getMarca());
-            stmt.setString(5, vic.getModelo());
-            stmt.setObject(6, vic.getRut_cliente());
-            stmt.setString(7, vic.getPatente());
+            stmt.setInt(1, vic.getAgno_fab());
+            stmt.setString(2,vic.getColor());
+            stmt.setString(3, vic.getMarca());
+            stmt.setString(4, vic.getModelo());
+            stmt.setString(5, vic.getRut_cliente().getRut());
+            stmt.setString(6, vic.getPatente());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Vehiculo Modificado Correctamente!!!");
             return true;
@@ -129,7 +129,7 @@ public class CrudeVehiculo {
             while (rs.next()) { 
                 fila[0]=rs.getString(6);
                 fila[1]=rs.getString(1);
-                fila[2]=rs.getString(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5);
+                fila[2]=rs.getInt(2)+" "+rs.getString(3)+" "+rs.getString(4)+" "+rs.getString(5);
                 tabla.addRow(fila);
             }
             rs.close();

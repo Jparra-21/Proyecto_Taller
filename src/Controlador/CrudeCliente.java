@@ -42,14 +42,16 @@ public class CrudeCliente {
     }
      
     public Cliente Buscar(String args){
-        Statement stmt;
+        PreparedStatement stmt;
         ResultSet rs;
         Cliente cli = new Cliente();
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
+        String query =("SELECT * from cliente where rut=?");
             try {
-                stmt = conn.createStatement(); 
-                rs = stmt.executeQuery("SELECT * from cliente where rut ="+args);
+                stmt = conn.prepareStatement(query);
+                stmt.setString(1,args);
+                rs = stmt.executeQuery();
                  while (rs.next()) {
                  cli.setRut(rs.getString("rut"));
                  cli.setDv(rs.getString("dv"));
