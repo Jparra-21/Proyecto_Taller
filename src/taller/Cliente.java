@@ -66,4 +66,18 @@ package taller;
         this.ape2 = ape2;
     }
     
+    public String VerificarRut(String rut) {
+     
+        if (rut.isEmpty()){
+            return null;
+        }else if(rut.length()< 7) {
+            return null;
+        }else if(rut.contains("-")){
+        int guion=rut.indexOf("-");
+        return rut.substring(0, guion);
+        }else if(rut.length()> 8) {
+            return null;
+        }else 
+         return rut;
+    }
 }

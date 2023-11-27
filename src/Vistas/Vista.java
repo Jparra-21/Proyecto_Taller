@@ -490,7 +490,8 @@ public class Vista extends javax.swing.JFrame {
         String nomb=txtNombre.getText();
         String ape1=txtApe1.getText();
         String ape2=txtApe2.getText();
-        Cliente cli=new Cliente(rut,dv,nomb,ape1,ape2);   
+        Cliente cli = new Cliente();
+        cli=new Cliente(rut,dv,nomb,ape1,ape2);   
         CrudeCliente crud=new CrudeCliente();
         crud.Agregar(cli);
         
@@ -514,9 +515,9 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnModificarClienteSQLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteSQLActionPerformed
         // TODO add your handling code here:
-        String rutModificado=txtRut.getText();
-        String dv= rutModificado.substring(rutModificado.length()-1);
-        String rut = rutModificado.substring(0, 8);
+        String rut=txtRut.getText();
+        String dv= rut.substring(rut.length()-1);
+        rut = rut.substring(0, 8);
         String nomb=txtNombre.getText();
         String ape1=txtApe1.getText();
         String ape2=txtApe2.getText();
@@ -538,6 +539,7 @@ public class Vista extends javax.swing.JFrame {
     private void btnModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarClienteActionPerformed
         // TODO add your handling code here:
             String modificarCliente = JOptionPane.showInputDialog(rootPane, "Ingrese el rut del usuario que desea modificar");
+            modificarCliente= modificarCliente.substring(modificarCliente.length()-1);
             CrudeCliente crud=new CrudeCliente();
             Cliente cli = crud.Buscar(modificarCliente);
             txtRut.setText(cli.getRut()+"-"+cli.getDv());
