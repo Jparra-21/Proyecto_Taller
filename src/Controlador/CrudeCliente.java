@@ -21,7 +21,6 @@ import taller.Cliente;
 public class CrudeCliente {
    
     public boolean Agregar(Cliente cli){
-        cli.setRut(cli.VerificarRut(cli.getRut()));
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
@@ -43,10 +42,9 @@ public class CrudeCliente {
     }
      
     public Cliente Buscar(String args){
-        Cliente cli = new Cliente();
-        args = cli.VerificarRut(args);
         PreparedStatement stmt;
         ResultSet rs;
+        Cliente cli = new Cliente();
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         String query =("SELECT * from cliente where rut=?");
@@ -96,9 +94,6 @@ public class CrudeCliente {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        Cliente cli=new Cliente();
-        args = args.substring(0, args.length()-1);
-        args =cli.VerificarRut(args);
         String query = "Delete from cliente where `rut`=?";
             try {
                 stmt = conn.prepareStatement(query);
