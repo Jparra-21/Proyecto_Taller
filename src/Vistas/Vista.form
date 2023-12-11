@@ -640,8 +640,16 @@
                               </Group>
                               <Component id="jScrollPane3" min="-2" pref="558" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane6" min="-2" pref="278" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane6" min="-2" pref="278" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                                  <Component id="infoDettale" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -656,6 +664,7 @@
                               <Component id="btnEliminarman" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="infoMantencion" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="listaVehiculo1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="infoDettale" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -841,6 +850,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="##Ingrese detalle del trabajo##&#xa;&#xa;##Partes Utilizadas##"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -856,7 +866,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaingActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="txtFechaing.addMouseListener(new MouseAdapter() {&#xa;                    @Override&#xa;                    public void mousePressed(MouseEvent e) {&#xa;                        if (e.getClickCount()==1) {&#xa;                            String selected = txtPatenteman.getText();&#xa;                            CrudeVehiculo crud = new CrudeVehiculo();&#xa;                            Vehiculo vic=crud.Buscar(selected);&#xa;                            if(selected.toString().equals(vic.getPatente()))&#xa;                            txtKiloMantencion.setText(String.valueOf(vic.getKilometraje()));&#xa;                        }&#xa;                    }&#xa;                });"/>
+                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="txtFechaing.addMouseListener(new MouseAdapter() {&#xa;                    @Override&#xa;                    public void mousePressed(MouseEvent e) {&#xa;                            if (e.getClickCount()==1) {&#xa;                            txtFechaing.setText(&quot;&quot;);&#xa;                            String selected = txtPatenteman.getText();&#xa;                            CrudeVehiculo crud = new CrudeVehiculo();&#xa;                            Vehiculo vic=crud.Buscar(selected);&#xa;                            if(selected.toString().equals(vic.getPatente()))&#xa;                            txtKiloMantencion.setText(String.valueOf(vic.getKilometraje()));&#xa;                        }&#xa;                    }&#xa;                });"/>
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="txtFechasal">
@@ -869,6 +879,9 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechasalActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="txtFechasal.addMouseListener(new MouseAdapter() {&#xa;                    @Override&#xa;                    public void mousePressed(MouseEvent e) {&#xa;                            if (e.getClickCount()==1) {&#xa;                            txtFechasal.setText(&quot;&quot;);&#xa;                            String selected = txtPatenteman.getText();&#xa;                            CrudeVehiculo crud = new CrudeVehiculo();&#xa;                            Vehiculo vic=crud.Buscar(selected);&#xa;                            if(selected.toString().equals(vic.getPatente()))&#xa;                            txtKiloMantencion.setText(String.valueOf(vic.getKilometraje()));&#xa;                        }&#xa;                    }&#xa;                });"/>
+                  </AuxValues>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane6">
                   <AuxValues>
@@ -880,21 +893,11 @@
                     <Component class="javax.swing.JTextArea" name="txtDesMan">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="d6" green="d6" red="d6" type="rgb"/>
-                        </Property>
                         <Property name="columns" type="int" value="20"/>
-                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="0" red="0" type="rgb"/>
-                        </Property>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="caretColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="33" type="rgb"/>
-                        </Property>
-                        <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="33" green="33" red="33" type="rgb"/>
-                        </Property>
                         <Property name="focusable" type="boolean" value="false"/>
+                        <Property name="requestFocusEnabled" type="boolean" value="false"/>
+                        <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
                       </Properties>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="txtDesMan.setEditable(false);"/>
@@ -902,6 +905,11 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="infoDettale">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Detalle"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel2">
@@ -976,6 +984,9 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarActionPerformed"/>
                   </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_ListenersCodePost" type="java.lang.String" value="txtBuscar.addMouseListener(new MouseAdapter() {&#xa;                    @Override&#xa;                    public void mousePressed(MouseEvent e) {&#xa;                            if (e.getClickCount()==1) {&#xa;                            txtBuscar.setText(&quot;&quot;);&#xa;                        }&#xa;                    }&#xa;                });"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnBuscar">
                   <Properties>
@@ -995,11 +1006,8 @@
                     <Component class="javax.swing.JTable" name="tblBuscar">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="1" rowCount="1">
+                            <Column editable="true" title="Busqueda" type="java.lang.Object"/>
                           </Table>
                         </Property>
                       </Properties>

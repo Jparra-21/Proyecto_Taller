@@ -117,6 +117,7 @@ public class Vista extends javax.swing.JFrame {
         txtFechasal = new javax.swing.JFormattedTextField();
         jScrollPane6 = new javax.swing.JScrollPane();
         txtDesMan = new javax.swing.JTextArea();
+        infoDettale = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         comboBuscar = new javax.swing.JComboBox<>();
         txtBuscar = new javax.swing.JTextField();
@@ -607,6 +608,7 @@ public class Vista extends javax.swing.JFrame {
 
         txtDesc.setColumns(20);
         txtDesc.setRows(5);
+        txtDesc.setText("##Ingrese detalle del trabajo##\n\n##Partes Utilizadas##");
         jScrollPane4.setViewportView(txtDesc);
 
         txtFechaing.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd-MM-yyyy"))));
@@ -620,6 +622,7 @@ public class Vista extends javax.swing.JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getClickCount()==1) {
+                    txtFechaing.setText("");
                     String selected = txtPatenteman.getText();
                     CrudeVehiculo crud = new CrudeVehiculo();
                     Vehiculo vic=crud.Buscar(selected);
@@ -636,17 +639,30 @@ public class Vista extends javax.swing.JFrame {
                 txtFechasalActionPerformed(evt);
             }
         });
+        txtFechasal.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getClickCount()==1) {
+                    txtFechasal.setText("");
+                    String selected = txtPatenteman.getText();
+                    CrudeVehiculo crud = new CrudeVehiculo();
+                    Vehiculo vic=crud.Buscar(selected);
+                    if(selected.toString().equals(vic.getPatente()))
+                    txtKiloMantencion.setText(String.valueOf(vic.getKilometraje()));
+                }
+            }
+        });
 
         txtDesMan.setEditable(false);
-        txtDesMan.setBackground(new java.awt.Color(214, 214, 214));
         txtDesMan.setColumns(20);
-        txtDesMan.setForeground(new java.awt.Color(0, 0, 0));
         txtDesMan.setRows(5);
-        txtDesMan.setCaretColor(new java.awt.Color(51, 51, 51));
-        txtDesMan.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         txtDesMan.setFocusable(false);
+        txtDesMan.setRequestFocusEnabled(false);
+        txtDesMan.setVerifyInputWhenFocusTarget(false);
         jScrollPane6.setViewportView(txtDesMan);
         txtDesMan.setEditable(false);
+
+        infoDettale.setText("Detalle");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -682,8 +698,13 @@ public class Vista extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnEliminarman))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 558, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(infoDettale)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -695,7 +716,8 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(btnModificarman)
                     .addComponent(btnEliminarman)
                     .addComponent(infoMantencion)
-                    .addComponent(listaVehiculo1))
+                    .addComponent(listaVehiculo1)
+                    .addComponent(infoDettale))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -746,6 +768,14 @@ public class Vista extends javax.swing.JFrame {
                 txtBuscarActionPerformed(evt);
             }
         });
+        txtBuscar.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getClickCount()==1) {
+                    txtBuscar.setText("");
+                }
+            }
+        });
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -756,13 +786,10 @@ public class Vista extends javax.swing.JFrame {
 
         tblBuscar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Busqueda"
             }
         ));
         jScrollPane5.setViewportView(tblBuscar);
@@ -1275,6 +1302,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboBuscar;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JLabel infoCliente;
+    private javax.swing.JLabel infoDettale;
     private javax.swing.JLabel infoMantencion;
     private javax.swing.JLabel infoVehiculo;
     private javax.swing.JLabel jLabel1;
