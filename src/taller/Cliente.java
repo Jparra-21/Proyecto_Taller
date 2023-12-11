@@ -14,18 +14,39 @@ package taller;
     private String Nombre;
     private String ape1;
     private String ape2;
+    private String telefono;
+    private String correo;
 
     public Cliente() {
     }
 
-    public Cliente(String rut, String dv, String Nombre, String ape1, String ape2) {
+    public Cliente(String rut, String dv, String Nombre, String ape1, String ape2, String telefono, String correo) {
         this.rut = rut;
         this.dv = dv;
         this.Nombre = Nombre;
         this.ape1 = ape1;
         this.ape2 = ape2;
+        this.telefono = telefono;
+        this.correo = correo;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    
+    
     public String getRut() {
         return rut;
     }
@@ -66,4 +87,18 @@ package taller;
         this.ape2 = ape2;
     }
     
+    public String VerificarRut(String rut) {
+     
+        if (rut.isEmpty()){
+            return null;
+        }else if(rut.length()< 7) {
+            return null;
+        }else if(rut.contains("-")){
+        int guion=rut.indexOf("-");
+        return rut.substring(0, guion);
+        }else if(rut.length()> 8) {
+            return null;
+        }else 
+         return rut;
+    }
 }

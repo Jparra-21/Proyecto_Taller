@@ -21,10 +21,11 @@ import taller.Cliente;
 public class CrudeCliente {
    
     public boolean Agregar(Cliente cli){
+        cli.setRut(cli.VerificarRut(cli.getRut()));
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        String query ="INSERT into cliente (rut,dv,nombre,ape1,ape2) values(?,?,?,?,?)";
+        String query ="INSERT into cliente (rut,dv,nombre,ape1,ape2,telefono,correo) values(?,?,?,?,?,?,?)";
         try {
             stmt = conn.prepareStatement(query);
             stmt.setString(1,cli.getRut());
@@ -32,6 +33,8 @@ public class CrudeCliente {
             stmt.setString(3,cli.getNombre());
             stmt.setString(4, cli.getApe1());
             stmt.setString(5, cli.getApe2());
+            stmt.setString(6, cli.getTelefono());
+            stmt.setString(7, cli.getCorreo());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente Ingresado Correctamente!!!");
             return true;
@@ -42,15 +45,16 @@ public class CrudeCliente {
     }
      
     public Cliente Buscar(String args){
+        Cliente cli = new Cliente();
+        cli.setRut(cli.VerificarRut(args));
         PreparedStatement stmt;
         ResultSet rs;
-        Cliente cli = new Cliente();
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         String query =("SELECT * from cliente where rut=?");
             try {
                 stmt = conn.prepareStatement(query);
-                stmt.setString(1,args);
+                stmt.setString(1,cli.getRut());
                 rs = stmt.executeQuery();
                  while (rs.next()) {
                  cli.setRut(rs.getString("rut"));
@@ -58,6 +62,8 @@ public class CrudeCliente {
                  cli.setNombre(rs.getString("nombre"));
                  cli.setApe1(rs.getString("ape1"));
                  cli.setApe2(rs.getString("ape2"));
+                 cli.setTelefono(rs.getString("telefono"));
+                 cli.setCorreo(rs.getString("correo"));
                  }
                 rs.close();
                 stmt.close();
@@ -72,15 +78,16 @@ public class CrudeCliente {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        String query ="UPDATE cliente SET rut = ?, dv = ?, nombre = ?, ape1 = ?, ape2 = ? WHERE rut =?";
+        String query ="UPDATE cliente SET nombre = ?, ape1 = ?, ape2 = ?, telefono=?, correo=? WHERE rut =?";
         try {
             stmt = conn.prepareStatement(query);
-            stmt.setString(1,cli.getRut());
-            stmt.setString(2,cli.getDv());
-            stmt.setString(3,cli.getNombre());
-            stmt.setString(4, cli.getApe1());
-            stmt.setString(5, cli.getApe2());
+            stmt.setString(1,cli.getNombre());
+            stmt.setString(2, cli.getApe1());
+            stmt.setString(3, cli.getApe2());
+            stmt.setString(4,cli.getTelefono());
+            stmt.setString(5, cli.getCorreo());
             stmt.setString(6, cli.getRut());
+            
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cliente Modificado Correctamente!!!");
             return true;
@@ -94,6 +101,9 @@ public class CrudeCliente {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
+        Cliente cli=new Cliente();
+        args = args.substring(0, args.length()-1);
+        args =cli.VerificarRut(args);
         String query = "Delete from cliente where `rut`=?";
             try {
                 stmt = conn.prepareStatement(query);
@@ -119,11 +129,15 @@ public class CrudeCliente {
             tabla.addColumn("Rut");
             tabla.addColumn("Nombre");
             tabla.addColumn("Apellidos");
-            Object[] fila=new Object[3];
+            tabla.addColumn("Numero Telefonico");
+            tabla.addColumn("Correo Electronico");
+            Object[] fila=new Object[5];
             while (rs.next()) { 
                 fila[0]=rs.getString(1)+"-"+rs.getString(2);
                 fila[1]=rs.getString(3);
                 fila[2]=rs.getString(4)+" "+rs.getString(5);
+                fila[3]=rs.getString(6);
+                fila[4]=rs.getString(7);
                 tabla.addRow(fila);
             }
             rs.close();

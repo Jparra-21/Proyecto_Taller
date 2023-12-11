@@ -620,9 +620,9 @@ public class Vista extends javax.swing.JFrame {
             @Override
             public void mousePressed(MouseEvent e) {
                 if (e.getClickCount()==1) {
-                    Object selected = txtPatenteman.getSelectedText();
+                    String selected = txtPatenteman.getText();
                     CrudeVehiculo crud = new CrudeVehiculo();
-                    Vehiculo vic=crud.Buscar((String) selected);
+                    Vehiculo vic=crud.Buscar(selected);
                     if(selected.toString().equals(vic.getPatente()))
                     txtKiloMantencion.setText(String.valueOf(vic.getKilometraje()));
                 }

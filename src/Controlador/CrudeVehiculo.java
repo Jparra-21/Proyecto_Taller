@@ -25,7 +25,7 @@ public class CrudeVehiculo {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        String query ="INSERT into vehiculo (patente,agno_fab,color,marca,modelo,rut_cliente) values(?,?,?,?,?,?)";
+        String query ="INSERT into vehiculo (patente,agno_fab,color,marca,modelo,rut_cliente,vin) values(?,?,?,?,?,?,?)";
         try {
             stmt = conn.prepareStatement(query);
             stmt.setString(1,vic.getPatente());
@@ -34,8 +34,9 @@ public class CrudeVehiculo {
             stmt.setString(4, vic.getMarca());
             stmt.setString(5, vic.getModelo());
             stmt.setString(6, cli.getRut());
+            stmt.setString(7, vic.getVin());
             stmt.executeLargeUpdate();
-            JOptionPane.showMessageDialog(null, "Vehiculo Ingresado Correctamente!!!");
+            JOptionPane.showMessageDialog(null, "Vehiculo Ingresado Correctamente");
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -64,11 +65,8 @@ public class CrudeVehiculo {
                  vic.setMarca(rs.getString("marca"));
                  vic.setModelo(rs.getString("modelo"));
                  vic.setRut_cliente(crudCli.Buscar(rs.getString("rut_cliente")));
-<<<<<<< OURS
                  vic.setVin(rs.getString("vin"));
                  vic.setKilometraje(rs.getInt("kilometraje"));
-=======
->>>>>>> THEIRS
                  }
                 rs.close();
                 stmt.close();
@@ -83,7 +81,7 @@ public class CrudeVehiculo {
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
         PreparedStatement stmt;
-        String query ="UPDATE vehiculo SET agno_fab = ?, color = ?, marca = ?, modelo = ?, rut_cliente = ? WHERE patente =?";
+        String query ="UPDATE vehiculo SET agno_fab = ?, color = ?, marca = ?, modelo = ?, rut_cliente = ?, vin=? WHERE patente =?";
         try {
             stmt = conn.prepareStatement(query);
             stmt.setInt(1, vic.getAgno_fab());
@@ -92,8 +90,9 @@ public class CrudeVehiculo {
             stmt.setString(4, vic.getModelo());
             stmt.setString(5, vic.getRut_cliente().getRut());
             stmt.setString(6, vic.getPatente());
+            stmt.setString(7, vic.getVin());
             stmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Vehiculo Modificado Correctamente!!!");
+            JOptionPane.showMessageDialog(null, "Vehiculo Modificado Correctamente");
             return true;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -110,7 +109,7 @@ public class CrudeVehiculo {
                 stmt = conn.prepareStatement(query);
                 stmt.setString(1, args);
                 stmt.executeUpdate();
-                JOptionPane.showMessageDialog(null, "vehiculo Eliminado Correctamente!!!");
+                JOptionPane.showMessageDialog(null, "Vehiculo Eliminado Correctamente");
                 return true;                
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
@@ -123,18 +122,31 @@ public class CrudeVehiculo {
         ResultSet rs;
         Conexion con= new Conexion();
         Connection conn=con.conectarBD("duocdb");
+        CrudeCliente crude = new CrudeCliente();
+        Cliente cli=new Cliente();
         try {
             stmt = conn.createStatement(); 
             rs = stmt.executeQuery("select * from vehiculo");
             DefaultTableModel tabla=new DefaultTableModel();
             tabla.addColumn("Rut Dueño");
             tabla.addColumn("Patente");
-            tabla.addColumn("Informacion");
-            Object[] fila=new Object[3];
+            tabla.addColumn("Marca");
+            tabla.addColumn("Modelo");
+            tabla.addColumn("Año");
+            tabla.addColumn("Color");
+            tabla.addColumn("Kilometraje");
+            tabla.addColumn("Vin");
+            Object[] fila=new Object[8];
             while (rs.next()) { 
-                fila[0]=rs.getString(6);
+                cli=crude.Buscar(rs.getString(6));
+                fila[0]=cli.getRut()+"-"+cli.getDv();
                 fila[1]=rs.getString(1);
-                fila[2]=rs.getString(4)+" "+rs.getString(5)+" "+rs.getString(3)+" "+rs.getInt(2);
+                fila[2]=rs.getString(4);
+                fila[3]=rs.getString(5);
+                fila[4]=rs.getInt(2);
+                fila[5]=rs.getString(3);
+                fila[6]=rs.getInt(7);
+                fila[7]=rs.getString(8);
                 tabla.addRow(fila);
             }
             rs.close();

@@ -94,4 +94,12 @@ public class Mantencion {
             return false;
         }
     }
+    
+    public int verificaEstado1(boolean estado) {
+        if (estado == true){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
 }
