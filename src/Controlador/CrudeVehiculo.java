@@ -64,6 +64,11 @@ public class CrudeVehiculo {
                  vic.setMarca(rs.getString("marca"));
                  vic.setModelo(rs.getString("modelo"));
                  vic.setRut_cliente(crudCli.Buscar(rs.getString("rut_cliente")));
+<<<<<<< OURS
+                 vic.setVin(rs.getString("vin"));
+                 vic.setKilometraje(rs.getInt("kilometraje"));
+=======
+>>>>>>> THEIRS
                  }
                 rs.close();
                 stmt.close();
