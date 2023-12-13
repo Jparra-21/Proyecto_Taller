@@ -125,6 +125,7 @@ public class Vista extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         tblBuscar = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
+        btnImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -796,22 +797,31 @@ public class Vista extends javax.swing.JFrame {
 
         jLabel19.setText("Elemento que desea buscar");
 
+        btnImprimir.setText("Imprimir");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnImprimir)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(154, 154, 154)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtBuscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(comboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel19)))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(296, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -827,7 +837,9 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(btnBuscar)
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addGap(58, 58, 58)
+                .addComponent(btnImprimir)
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Buscar", jPanel2);
@@ -1249,6 +1261,11 @@ public class Vista extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // TODO add your handling code here:
+        new pdf().setVisible(true);
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1289,6 +1306,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnEliminarCliente;
     private javax.swing.JButton btnEliminarVehiculo;
     private javax.swing.JButton btnEliminarman;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnIngresoCliente;
     private javax.swing.JButton btnIngresoVehiculo;
     private javax.swing.JButton btnIngresoman;
