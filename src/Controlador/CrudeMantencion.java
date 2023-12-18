@@ -5,6 +5,7 @@
 package Controlador;
 
 import Util.Conexion;
+import java.awt.List;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import taller.Cliente;
 import taller.Mantencion;
 import taller.Vehiculo;
 
@@ -25,7 +27,7 @@ import taller.Vehiculo;
 public class CrudeMantencion {
     public boolean Agregar(Mantencion man, Vehiculo vic) throws ParseException{
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query ="INSERT into mantencion (fec_ing,fec_sal,estado,patente_vic, descripcion) values(?,?,?,?,?)";
         try {
@@ -52,7 +54,7 @@ public class CrudeMantencion {
         Conexion con= new Conexion();
         CrudeVehiculo crudVic=new CrudeVehiculo();
         SimpleDateFormat formato=new SimpleDateFormat("dd-MM-yyyy");
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         String query =("SELECT * from mantencion where id=?");    
         try {
                 stmt = conn.prepareStatement(query);
@@ -79,7 +81,7 @@ public class CrudeMantencion {
     
     public boolean Modificar(Mantencion man){
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query ="UPDATE Mantencion SET fec_ing = ?, fec_sal = ?, estado = ?, descripcion = ? WHERE id =?";
         try {
@@ -100,7 +102,7 @@ public class CrudeMantencion {
     
     public boolean Eliminar(String args){
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query = "Delete from mantencion where `id`=?";
             try {
@@ -119,7 +121,7 @@ public class CrudeMantencion {
         Statement stmt;
         ResultSet rs;
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         
         try {
             stmt = conn.createStatement(); 
@@ -148,5 +150,34 @@ public class CrudeMantencion {
             return tabla;
         }catch(SQLException ex){
         return null;}
+    }
+    
+    public List Impresion(Mantencion man){
+        List lista = new List();    
+        Vehiculo vic=man.getVehiculo();
+        Cliente cli=vic.getRut_cliente();
+        
+        
+        String rut = cli.getRut()+"-"+cli.getDv();
+        lista.add(rut);
+        String nombre = cli.getNombre()+" "+cli.getApe1()+" "+cli.getApe2();
+        lista.add(nombre);
+        String telefono = cli.getTelefono();
+        lista.add(telefono);
+        String correo = cli.getCorreo();
+        lista.add(correo);
+        
+        lista.add(vic.getPatente()+"\n"
+                +vic.getVin()+"\n"
+                +vic.getMarca()+"\n"
+                +vic.getModelo()+"\n"
+                +Integer.toString(vic.getAgno_fab())+"\n"
+                +vic.getColor()+"\n"
+                +Integer.toString(vic.getKilometraje()));
+        
+        
+        lista.add(man.getDescripcion());
+     
+        return lista;
     }
 }

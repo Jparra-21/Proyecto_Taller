@@ -23,7 +23,7 @@ import taller.Vehiculo;
 public class CrudeVehiculo {
     public boolean Agregar(Vehiculo vic, Cliente cli) throws ParseException{
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query ="INSERT into vehiculo (patente,agno_fab,color,marca,modelo,rut_cliente,vin) values(?,?,?,?,?,?,?)";
         try {
@@ -52,7 +52,7 @@ public class CrudeVehiculo {
         Vehiculo vic = new Vehiculo();
         Conexion con= new Conexion();
         CrudeCliente crudCli=new CrudeCliente();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         String query =("SELECT * from vehiculo where patente=?");    
         try {
                 stmt = conn.prepareStatement(query);
@@ -79,7 +79,7 @@ public class CrudeVehiculo {
     
     public boolean Modificar(Vehiculo vic){
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query ="UPDATE vehiculo SET agno_fab = ?, color = ?, marca = ?, modelo = ?, rut_cliente = ?, vin=? WHERE patente =?";
         try {
@@ -102,7 +102,7 @@ public class CrudeVehiculo {
 
     public boolean Eliminar(String args){
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query = "Delete from vehiculo where `patente`=?";
             try {
@@ -121,7 +121,7 @@ public class CrudeVehiculo {
         Statement stmt;
         ResultSet rs;
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         CrudeCliente crude = new CrudeCliente();
         Cliente cli=new Cliente();
         try {

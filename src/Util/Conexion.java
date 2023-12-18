@@ -14,9 +14,9 @@ import java.sql.SQLException;
  */
 public class Conexion {
     public Connection conectarBD(String miBD) {
-        String url = "jdbc:mysql://localhost:3306/duocdb";
-        String username = "root";
-        String password = "";
+        String url = "jdbc:mysql://barcelona.tecnoinver.cl:3306/jplcl_mecashop";
+        String username = "jplcl_ADMIN";
+        String password = "Parranda-365";
     
     Connection conexion = null;
     try {

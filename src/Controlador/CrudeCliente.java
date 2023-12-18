@@ -23,7 +23,7 @@ public class CrudeCliente {
     public boolean Agregar(Cliente cli){
         cli.setRut(cli.VerificarRut(cli.getRut()));
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query ="INSERT into cliente (rut,dv,nombre,ape1,ape2,telefono,correo) values(?,?,?,?,?,?,?)";
         try {
@@ -50,7 +50,7 @@ public class CrudeCliente {
         PreparedStatement stmt;
         ResultSet rs;
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         String query =("SELECT * from cliente where rut=?");
             try {
                 stmt = conn.prepareStatement(query);
@@ -76,7 +76,7 @@ public class CrudeCliente {
     
     public boolean Modificar(Cliente cli){
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         String query ="UPDATE cliente SET nombre = ?, ape1 = ?, ape2 = ?, telefono=?, correo=? WHERE rut =?";
         try {
@@ -99,7 +99,7 @@ public class CrudeCliente {
 
     public boolean Eliminar(String args){
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         PreparedStatement stmt;
         Cliente cli=new Cliente();
         args = args.substring(0, args.length()-1);
@@ -121,7 +121,7 @@ public class CrudeCliente {
         Statement stmt;
         ResultSet rs;
         Conexion con= new Conexion();
-        Connection conn=con.conectarBD("duocdb");
+        Connection conn=con.conectarBD("jplcl_mecashop");
         try {
             stmt = conn.createStatement(); 
             rs = stmt.executeQuery("select * from cliente");

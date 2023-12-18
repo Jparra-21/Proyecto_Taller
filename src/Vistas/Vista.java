@@ -3,6 +3,7 @@ package Vistas;
 import Controlador.CrudeCliente;
 import Controlador.CrudeMantencion;
 import Controlador.CrudeVehiculo;
+import java.awt.List;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
@@ -1264,6 +1265,24 @@ public class Vista extends javax.swing.JFrame {
     private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
         // TODO add your handling code here:
         new pdf().setVisible(true);
+        CrudeMantencion crud = new CrudeMantencion();
+        Object selected = comboBuscar.getSelectedItem();
+        if(selected.toString().equals("Mantencion")){
+            Mantencion man  = new Mantencion();
+            int id = Integer.parseInt(txtBuscar.getText());
+            try {
+            man=crud.Buscar(id);
+                } catch (ParseException ex) {
+                  Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            List impresion = crud.Impresion(man);
+            pdf.txtRutpdf.setText(impresion.getItem(0));
+            pdf.txtNombrepdf.setText(impresion.getItem(1));
+            pdf.txtTelefonopdf.setText(impresion.getItem(2));
+            pdf.txtCorreopdf.setText(impresion.getItem(3));
+            pdf.txtVehiculopdf.setText(impresion.getItem(4));
+        }
+        
     }//GEN-LAST:event_btnImprimirActionPerformed
 
     /**
